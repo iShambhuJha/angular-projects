@@ -9,6 +9,6 @@ export class TabledataService {
   constructor(private http : HttpClient) { }
   //GET method fetching data from a dummy API
   getUserDetails(){
-    return this.http.get('http://dummy.restapiexample.com/api/v1/employees');
+    return this.http.get('https://dummy.restapiexample.com/api/v1/employees');
   }
 }
