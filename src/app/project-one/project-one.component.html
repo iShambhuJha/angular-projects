@@ -1,0 +1,35 @@
+<p><a routerLink="/project-one">Project 1</a></p>
+<p><a routerLink="/project-two">Project 2</a></p>
+<mat-card class="container-card">
+  <form id="inputForm" [formGroup]="inputForm" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input
+        appOnlynumber
+        matInput
+        name="firstInput"
+        placeholder="Ex. 24"
+        formControlName="firstInputValue"
+      />
+      <mat-error *ngIf="inputForm.get('firstInputValue').hasError('required')">
+        First number is required
+      </mat-error>
+    </mat-form-field>
+    /
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input
+        appOnlynumber
+        matInput
+        name="secondInput"
+        placeholder="Ex. 24"
+        formControlName="secondInputValue"
+      />
+      <mat-error *ngIf="inputForm.get('secondInputValue').hasError('required')">
+        Second number is required
+      </mat-error>
+    </mat-form-field>
+    =
+    <mat-form-field class="example-full-width">
+      <input id="result" matInput name="result" formControlName="result" />
+    </mat-form-field>
+  </form>
+</mat-card>

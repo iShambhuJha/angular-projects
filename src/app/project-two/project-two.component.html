@@ -1,0 +1,46 @@
+<p><a routerLink="/project-one">Project 1</a></p>
+<p><a routerLink="/project-two">Project 2</a></p>
+<table mat-table [dataSource]="users" class="mat-elevation-z8" id="testTable">
+  <!-- Id column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+
+  <!-- Name column -->
+  <ng-container matColumnDef="employee_name">
+    <th mat-header-cell *matHeaderCellDef>Employee Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.employee_name }}</td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+
+  <!-- Age column -->
+  <ng-container matColumnDef="employee_age">
+    <th mat-header-cell *matHeaderCellDef>Employee age</th>
+    <td mat-cell *matCellDef="let element">{{ element.employee_age }}</td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <!-- Salary column -->
+  <ng-container matColumnDef="employee_salary">
+    <th mat-header-cell *matHeaderCellDef>Employee salary</th>
+    <td mat-cell *matCellDef="let element">{{ element.employee_salary }}</td>
+    <td mat-footer-cell *matFooterCellDef
+      >Total: {{ getTotalSal() | currency }}</td
+    >
+  </ng-container>
+  <!-- Profile Image Column -->
+  <ng-container matColumnDef="profile_image">
+    <th mat-header-cell *matHeaderCellDef>Employee salary</th>
+    <td mat-cell *matCellDef="let element">
+      {{
+        element.profile_image == "" ? "Not Available" : element.profile_image
+      }}
+    </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+</table>
